@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}
+People
+{% endblock %}
+{% block content %}
+<div class="flex flex-col space-y-7">
+  <!-- Heading -->
+  <div class="flex justify-center align-middle text-3xl font-bold pt-3 space-x-2">
+    <h1>Towcester</h1>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer"><i class="fa-solid fa-caret-down fa-sm pt-1"></i></label>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li class="active"><a>Towcester</a></li>
+        <li><a>Roade</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+    <!-- Info Cards -->
+    <div class="flex justify-center space-x-7 text-center">
+      <div class="card bg-base-200 shadow-2xl w-44 flex justify-center">
+        <div class="flex flex-col items-center space-y-2 p-7">
+          <h3 class="card-title">Members Collected Today</h3>
+          <p class="card-text text-4xl font-bold">22</p>
+        </div>
+      </div>
+      <div class="card bg-base-200 shadow-2xl w-44 flex justify-center">
+        <div class="flex flex-col items-center space-y-2 p-7">
+          <h3 class="card-title">Stock Removed</h3>
+          <p class="card-text text-4xl font-bold">450kg</p>
+        </div>
+      </div>
+    </div>
+    <!-- Stock Info Cards -->
+    <div class="flex justify-center space-x-7 text-center">
+      <div class="card bg-base-200 shadow-2xl w-44 flex justify-center">
+        <div class="flex flex-col items-center space-y-2 p-7 cursor-pointer" onclick="location.href = '/add_member'">
+          <h3 class="card-title">Add Members</h3>
+          <i class="fa-solid fa-user-plus fa-xl"></i>
+        </div>
+      </div>
+      <div class="card bg-base-200 shadow-2xl w-44 flex justify-center">
+        <div class="flex flex-col items-center space-y-2 p-7 cursor-pointer " onclick="location.href = '/members'">
+          <h3 class="card-title">View Members</h3>
+          <i class="fa-solid fa-users fa-xl"></i>
+        </div>
+      </div>
+    </div>
+    
+
+<!-- Bottom Nav -->
+<div class="btm-nav bg-base-200">
+  <button  class="active">
+    <i class="fa-solid fa-house"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-cart-shopping"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-users"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</div>
+{% endblock %}

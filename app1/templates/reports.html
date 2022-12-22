@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<div class="flex flex-col space-y-7">
+  <!-- Heading -->
+  <div class="flex justify-center align-middle text-3xl font-bold pt-3 space-x-2">
+    <h1>Towcester</h1>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer"><i class="fa-solid fa-caret-down fa-sm pt-1"></i></label>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li class="active"><a>Towcester</a></li>
+        <li><a>Roade</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="flex flex-col justify-center space-y-16 items-center">
+    <!-- Stock Card -->
+    <div class="card bg-base-200 shadow-2xl w-96 flex justify-center">
+      <div class="card-body align-middle items-center">
+        <form action="/larder_report/" method="POST">
+          {% csrf_token %}
+        <h3 class="card-title items-center">Larder Report</h3>
+        {{ alert.div }}
+        <!-- {{ dateform }} -->
+        <div class="datepicker relative form-floating mb-3 " data-mdb-toggle-button="false">
+          <input type="text" name="start_date"
+            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            placeholder="Start date" id="start_date"/>
+          <label for="floatingInput" class="text-gray-700">Start Date</label>
+          <button class="datepicker-toggle-button" data-mdb-toggle="datepicker">
+            <i class="fas fa-calendar datepicker-toggle-icon"></i>
+          </button>
+        </div>
+        <div class="datepicker relative form-floating mb-3" data-mdb-toggle-button="false">
+          <input type="text" name="end_date"
+            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            placeholder="End date" id="end_date"/>
+          <label for="floatingInput" class="text-gray-700">End Date</label>
+          <button class="datepicker-toggle-button" data-mdb-toggle="datepicker">
+            <i class="fas fa-calendar datepicker-toggle-icon"></i>
+          </button>
+        </div>
+        <button type="submit" value="submit" class="btn btn-primary mt-4">Generate Report                
+          <i class="fa-solid fa-clipboard-list cursor-pointer pl-2"></i>
+        </button>
+      </form>
+      </div>
+    </div>
+  </div>
+    <!-- Info Cards -->
+{% endblock %}

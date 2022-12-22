@@ -1,0 +1,148 @@
+{% load tailwind_tags %} {% load tailwind_filters %}
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Larder Report</title>
+
+    {% load static %}
+    {% tailwind_css %}
+    <script src="{% static 'myJS.js' %}" defer></script>
+    <script src="{% static 'Quagga.js' %}" defer></script>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{% static 'myCSS.css' %}" />
+  </head>
+  <body c>
+    <div class="flex p-10 justify-center">
+        <div class="flex flex-col space-y-5 justify-center items-center">
+            <img class="w-1/3" src="https://static.wixstatic.com/media/40f4b2_957f85af43e3430e9ac31b61049d3c18~mv2.png/v1/fill/w_168,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/TowFood-Logo.png" alt="">
+            <h1 class="text-4xl font-bold">Larder Report</h1>
+        </div>
+    </div>
+    <div class="flex p-10 flex-col">
+        <div class="flex flex-row space-x-3">
+            <h2 class="text-2xl font-bold">{{ larder_name }}</h2>
+            <h2 class="text-2xl">|</h2>
+            <h2 class="text-2xl">{{ start_date }} - {{ end_date }}</h2>
+        </div>
+        <div class="divider">
+            <h3 class="text-xl">Overview</h3>
+        </div>
+        <div class="flex flex-row space-x-40  justify-center">
+            <div class="flex flex-col space-y-3">
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">Larder Address:</h3>
+                    <p>{{ larder_address }}</p>
+                </div>
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">New Members:</h3>
+                    <p>{{ new_members }}</p>
+                </div>
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">New Volunteers:</h3>
+                    <p>{{ new_volunteers }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-3">
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">Total Stock In:</h3>
+                    <p>{{ total_weight_in }}g</p>
+                </div>
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">Total Stock Out:</h3>
+                    <p>{{ total_weight_out }}g</p>
+                </div>
+                <div class="flex flex-row space-x-3 ">
+                    <h3 class="text-xl align-top">Largest Supplier:</h3>
+                    <p>{{ largest_supplier }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Suppliers -->
+        <div class="divider">
+            <h3 class="text-xl">Suppliers</h3>
+        </div>
+        <div>
+            <table class="table table-compact w-full px-4 ">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Stock Provided</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for x in supplier_data %}
+                  <tr>
+                    <td>{{ x.name }}</td>
+                    <td>{{ x.addressFirstLine }} </td>
+                    <td>{{ x.type }}</td>
+                    <!-- total stock provided -->
+                    <td>{{ x.TotalWeight }}g</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        <!-- Members -->
+        <div class="divider">
+            <h3 class="text-xl">Members</h3>
+        </div>
+        <div>
+            <table class="table table-compact w-full px-4">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Size of Household</th>
+                    <th>Stock taken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for x in member_data %}
+                  <tr>
+                    <th>{{ x.id }}</th>
+                    <td>{{ x.firstName }} {{ x.lastName }} </td>
+                    <td>{{ x.numInHousehold }} </td>
+                    <td>{{ x.TotalWeight }}g</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        <!-- Volunteers -->
+        <div class="divider">
+            <h3 class="text-xl">Volunteers</h3>
+        </div>
+        <div>
+            <table class="table table-compact w-full px-4">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Date Joined</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for x in volunteer_qs %}
+                  <tr>
+                    <th>{{ x.id }}</th>
+                    <td>{{ x.firstName }} {{ x.lastName }} </td>
+                    <td>{{ x.age}} </td>
+                    <td>{{ x.addressFirstLine }}</td>
+                    <td>{{ x.created_at }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+    
+  </body>
+</html>

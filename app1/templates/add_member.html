@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block title %}
+Add Member
+{% endblock %}
+{% block content %}
+<div class="flex flex-col space-y-7">
+  <!-- Heading -->
+  <div class="flex justify-center align-middle text-3xl font-bold pt-3 space-x-2">
+    <h1>Towcester</h1>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer"><i class="fa-solid fa-caret-down fa-sm pt-1"></i></label>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li class="active"><a>Towcester</a></li>
+        <li><a>Roade</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="flex flex-col justify-center items-center">
+    <!-- Stock Card -->
+    <div class="avatar">
+      <div class="w-24 mask mask-squircle z-10">
+        <img src="https://placeimg.com/192/192/people" />
+      </div>
+    </div>
+    <div class="card bg-base-200 shadow-2xl w-auto flex justify-center -mt-7">
+      <div class="flex flex-row items-center align-middle space-x-2 px-7 py-10">
+        <div class="flex flex-col">
+          <input type="text" placeholder="First Name" class="input input-ghost w-full max-w-xs" />
+          <select class="select input-ghost select-ghost w-full max-w-xs">
+            <option disabled selected>Pref Larder</option>
+            <option>Towcester</option>
+            <option>Roade</option>
+          </select> 
+          <input type="text" placeholder="Address" class="input input-ghost w-full max-w-xs" />
+          <input type="text" placeholder="Post Code" class="input input-ghost w-full max-w-xs" />
+          <input type="text" placeholder="Occupation" class="input input-ghost w-full max-w-xs" />
+          <label class="input input-ghost cursor-pointer w-full ">
+            <span class="input-ghost">Carer?</span> 
+            <input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+          </label>
+          <label class="input input-ghost cursor-pointer w-full ">
+            <span class="input-ghost">Member?</span> 
+            <input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+          </label>
+          <label class="input input-ghost cursor-pointer w-full ">
+            <span class="input-ghost">Employed?</span> 
+            <input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+          </label>
+          <label class="input input-ghost cursor-pointer w-full ">
+            <span class="input-ghost">Accepted Policies?</span> 
+            <input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+          </label>          
+        </div>
+        <div class="flex flex-col">
+          <input type="text" placeholder="Last Name" class="input input-ghost w-full max-w-xs" />
+          <select class="select input-ghost select-ghost w-full max-w-xs">
+            <option disabled selected>Pref Contact</option>
+            <option>Phone</option>
+            <option>Email</option>
+          </select>          
+          <input type="tel" placeholder="Phone Number" class="input input-ghost w-full max-w-xs" />
+          <input type="email" placeholder="Email" class="input input-ghost w-full max-w-xs" />
+          <input type="number" placeholder="Adults" class="input input-ghost w-full max-w-xs" />
+          <input type="number" placeholder="Children" class="input input-ghost w-full max-w-xs" />
+          <input type="text" placeholder="Allergies" class="input input-ghost w-full max-w-xs" />
+          <input type="text" placeholder="Current Health Score" class="input input-ghost w-full max-w-xs" disabled/>
+          <input type="text" placeholder="Total Food Collected" class="input input-ghost w-full max-w-xs" disabled/>
+        </div> 
+    </div>
+  </div>
+    
+
+<!-- Bottom Nav -->
+<div class="btm-nav bg-base-200">
+  <button  class="active">
+    <i class="fa-solid fa-house"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-cart-shopping"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-users"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block title %}
+Members
+{% endblock %}
+{% block content %}
+<div class="flex flex-col space-y-7">
+  <!-- Heading -->
+  <div class="flex justify-center align-middle text-3xl font-bold pt-3 space-x-2">
+    <h1>Towcester</h1>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer"><i class="fa-solid fa-caret-down fa-sm pt-1"></i></label>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li class="active"><a>Towcester</a></li>
+        <li><a>Roade</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+    <!-- Info Cards -->
+    <div class="flex justify-center space-x-7">
+      <div class="card bg-base-200 shadow-2xl w-96 flex flex-row justify-center items-center pb-4 px-2">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="card-title">Member lookup</span>
+          </label>
+          <div class="flex flex-row items-center space-x-4">
+            <input id="search" type="text" placeholder="Enter Last Name" class="input input-bordered w-full max-w-xs" />
+            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Stock Info Cards -->
+    <div class="flex justify-center space-x-7">
+      <div class="card overflow-x-auto bg-base-200 shadow-2xl w-96 pb-4" id="resTable">
+        <table class="table table-compact w-full px-4">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Adults</th>
+              <th>Children</th>
+              <th>Address</th>
+              <th>Post Code</th>
+              <th>Food Allergies</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in members %}
+            <tr>
+              <th>{{ x.id }}</th>
+              <td>{{ x.firstName }}</td>
+              <td>{{ x.lastName }}</td>
+              <td>{{ x.noAdults }}</td>
+              <td>{{ x.noChildren }}</td>
+              <td>{{ x.addressFirstLine }}</td>
+              <td>{{ x.postCode }}</td>
+              <td>{{ x.foodAllergies }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+
+<!-- Bottom Nav -->
+<div class="btm-nav bg-base-200">
+  <button  class="active">
+    <i class="fa-solid fa-house"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-cart-shopping"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-users"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</div>
+{% endblock %}

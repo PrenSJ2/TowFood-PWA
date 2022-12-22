@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block title %}
+Create Pickup
+{% endblock %}
+{% block content %}
+<!-- {% load tailwind_filters %} -->
+<div class="flex flex-col space-y-10">
+  <!-- Heading -->
+  <div class="flex justify-center align-middle text-3xl font-bold pt-3 space-x-2">
+    <h1>Towcester</h1>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer"><i class="fa-solid fa-caret-down fa-sm pt-1"></i></label>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li class="active"><a>Towcester</a></li>
+        <li><a>Roade</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+    <!-- Info Cards -->
+  <div class="">
+    <div class="flex justify-center space-x-7">
+      <div class="card bg-base-200 shadow-2xl w-96 flex flex-row justify-center items-center pb-4 px-2">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="card-title">Create Pickup</span>
+          </label>
+            <form method="POST" action="/scan_out_1/">
+              {% csrf_token %}
+              
+              <div class="flex flex-col px-7 py-2 form-control">
+                {{ p_form|crispy }}
+                <button type="submit" value="submit" class="btn btn-primary mt-4">Start Pickup                 
+                  <i class="fa-solid fa-cart-plus cursor-pointer pl-2"></i>
+                </button>
+              </div>  
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Stock Info Cards -->
+  <div class="flex justify-center space-x-7">
+    <div class="card overflow-x-auto bg-base-200 shadow-2xl w-96 pb-4">
+      <table class="table table-compact w-full px-4">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Perishable</th>
+            <th>Weight</th>
+            <th>EAN</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in product_qs_today %}
+          <tr>
+            <th>{{ x.name }}</th>
+            <td>{{ x.brand }}</td>
+            <td>{{ x.category_list.0 }},{{ x.category_list.1 }}</td>
+            <td>{{ x.perishable }}</td>
+            <td>{{ x.weight }}g</td>
+            <td>{{ x.footprint }}per kg</td>
+            <td>{{ x.barcode }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+    
+
+<!-- Bottom Nav -->
+<div class="btm-nav bg-base-200">
+  <button  class="active">
+    <i class="fa-solid fa-house"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-cart-shopping"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-users"></i>
+  </button>
+  <button>
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</div>
+{% endblock %}
