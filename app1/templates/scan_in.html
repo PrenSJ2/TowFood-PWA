@@ -21,11 +21,9 @@ Stock In
     <!-- Image Preview -->
     <div class="card bg-base-200 shadow-2xl w-96 flex justify-center">
       <div id="interactive" class="viewport">
-        <canvas class="drawingBuffer bg-white relative z-20 w-96" height="480"></canvas>
-        <video class="relative z-10" autoplay="true" preload="auto" src></video>
+          <canvas class="drawingBuffer w-96 absolute inset-0 z-20"></canvas>
+          <video class="relative z-10 rounded-2xl" autoplay="true" preload="auto" src="" muted="true" playsinline="true"></video>
       </div>
-      <button class="btn btn-success" id="start-button">Start</button>
-      <button class="btn btn-error" id="stop-button">Stop</button>
     </div>
   </div>
   <!-- Info Cards -->

@@ -53,7 +53,7 @@ const stockPie = new Chart(
 
 // Barcode Lookup from Open Food Facts API 
 function BarcodeLookup() {
-  console.log("Barcode Lookup Test");
+  console.log("Barcode Lookup Test on code", );
   const barcode = document.getElementById('barcode_search').value;
   console.log(barcode);
   fetch(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`)

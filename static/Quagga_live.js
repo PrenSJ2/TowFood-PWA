@@ -1,5 +1,5 @@
 // This is the code for the barcode scanner
-window.onload = function () {
+$(function () {
     var App = {
         init: function () {
             var self = this;
@@ -71,6 +71,7 @@ window.onload = function () {
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
         console.log('Barcode Scanned', code);
-        BarcodeLookup(code);
+        document.getElementById('barcode_search').value = code;
+        BarcodeLookup();
     });
-};
+});
