@@ -43,7 +43,7 @@ module.exports = {
 
         // TW - elements
         './src/**/*.{html,js}', 
-        './node_modules/tw-elements/dist/js/**/*.js',
+        './node_modules/tw-elements/libs/js/**/*.js',
 
 
 
@@ -65,6 +65,6 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
         require('daisyui'),
-        require('tw-elements/dist/plugin'),
+        require('tw-elements/libs/plugin'),
     ],
 }
