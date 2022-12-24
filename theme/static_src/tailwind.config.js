@@ -65,6 +65,6 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
         require('daisyui'),
-        require('tw-elements/libs/plugin'),
+        require('tw-elements/dist/plugin'),
     ],
 }
