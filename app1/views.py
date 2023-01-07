@@ -189,6 +189,7 @@ def p_search(request, p):
             desc = cursor2.description
             nt_result = namedtuple('Result', [col[0] for col in desc])
             return [nt_result(*row) for row in cursor2.fetchall()]
+
         current_stock_data = namedtuplefetchall(cursor2)
 
     n = len(current_stock_data)
