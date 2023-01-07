@@ -11,24 +11,19 @@ Total Stock
   </div>
   <!-- Content -->
     <!-- Info Cards -->
-  <div class="">
     <div class="flex justify-center space-x-7">
       <div class="card bg-base-200 shadow-2xl w-96 flex flex-row justify-center items-center pb-4 px-2">
         <div class="form-control w-full max-w-xs">
           <label class="label">
-            <span class="card-title">Barcode Lookup</span>
+            <span class="card-title">Product lookup</span>
           </label>
-            <form id="barcode_lookup" action="" onSubmit="test1()">
-              <div class="flex flex-row items-center space-x-4">
-                <input id="p_search" type="number" placeholder="Enter EAN" class="input input-bordered w-full max-w-xs" />
-                <i class="fa-solid fa-magnifying-glass fa-lg cursor-pointer"></i>
-                <!-- <i class="fa-solid fa-cart-plus fa-lg cursor-pointer" onclick="HTMLFormElement.prototype.submit.call($('#addProduct')[0])"></i> -->
-              </div>
-            </form>
+          <div class="flex flex-row items-center space-x-4">
+            <input id="p_search" type="text" placeholder="Enter Product Name" class="input input-bordered w-full max-w-xs" />
+            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   <!-- Stock Info Cards -->
   <div class="flex justify-center space-x-7">
     <div id="p-resTable" class="card overflow-x-auto bg-base-200 shadow-2xl mx-5 pb-4">
