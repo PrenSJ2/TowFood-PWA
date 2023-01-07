@@ -43,7 +43,7 @@ module.exports = {
 
         // TW - elements
         './src/**/*.{html,js}', 
-        './node_modules/tw-elements/libs/js/**/*.js',
+        './node_modules/tw-elements/dist/js/**/*.js',
 
 
 
