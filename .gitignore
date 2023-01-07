@@ -46,7 +46,6 @@ Thumbs.db
 
 # Sensitive information
 .env
-secrets.json
 
 # System files
 node_modules/
