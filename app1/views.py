@@ -97,8 +97,16 @@ def add_product(request):
     form = addProd(request.POST or None)
     if request.method == "POST" and form.is_valid():
         product = form.save(commit=False)
-        product.log_data = timezone.now()
-        product.save()
+        # Check if a product with the same barcode already exists
+        existing_product = Product.objects.filter(barcode=product.barcode).first()
+        if existing_product:
+            # If a product with the same barcode exists, increase its quantity by 1
+            existing_product.quantity += 1
+            existing_product.save()
+        else:
+            # If a product with the same barcode does not exist, save the new product
+            product.log_data = timezone.now()
+            product.save()
         form = addProd(initial={"collection": product.collection})
         return render(request, "scan_in.html", {'nbar': 'scan_in', "form": form, "context": context})
     else:
@@ -276,8 +284,16 @@ def scan_out(request):
     p2_form = pickupProd(request.POST or None)
     if request.method == "POST" and p2_form.is_valid():
         product = p2_form.save(commit=False)
-        product.log_data = timezone.now()
-        product.save()
+        # Check if a product with the same barcode already exists
+        existing_product = ProductOut.objects.filter(barcode=product.barcode).first()
+        if existing_product:
+            # If a product with the same barcode exists, decrease its quantity by 1
+            existing_product.quantity -= 1
+            existing_product.save()
+        else:
+            # If a product with the same barcode does not exist, save the new product
+            product.log_data = timezone.now()
+            product.save()
         p2_form = pickupProd(initial={"pickup": product.pickup})
         return render(request, "scan_out.html", {'nbar': 'scan_out', "p2_form": p2_form, "context": context})
     else:
@@ -285,7 +301,6 @@ def scan_out(request):
         print("Form is not valid")
         print(p2_form.errors)
         return render(request, "scan_out.html", {'nbar': 'scan_out', "p2_form": p2_form, "context": context})
-
 
 def reports(request):
     alert = " "

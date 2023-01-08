@@ -8,7 +8,7 @@ class addProd(forms.ModelForm):
         widgets = {
             # 'collection': forms.HiddenInput(),
             'barcode': forms.HiddenInput(),
-            'quantity': forms.HiddenInput()
+            # 'quantity': forms.HiddenInput()
         }
 
 class pickupProd(forms.ModelForm):
@@ -18,7 +18,7 @@ class pickupProd(forms.ModelForm):
         widgets = {
             # 'pickup': forms.HiddenInput(),
             'barcode': forms.HiddenInput(),
-            'quantity': forms.HiddenInput()
+            # 'quantity': forms.HiddenInput()
         }
 class addCollection(forms.ModelForm):
     class Meta:
