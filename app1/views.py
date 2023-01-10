@@ -101,7 +101,7 @@ def add_product(request):
         existing_product = Product.objects.filter(barcode=product.barcode).first()
         if existing_product:
             # If a product with the same barcode exists, increase its quantity by 1
-            existing_product.quantity += 1
+            existing_product.quantity += product.quantity
             existing_product.save()
         else:
             # If a product with the same barcode does not exist, save the new product
@@ -288,7 +288,7 @@ def scan_out(request):
         existing_product = ProductOut.objects.filter(barcode=product.barcode).first()
         if existing_product:
             # If a product with the same barcode exists, decrease its quantity by 1
-            existing_product.quantity -= 1
+            existing_product.quantity -= product.quantity
             existing_product.save()
         else:
             # If a product with the same barcode does not exist, save the new product

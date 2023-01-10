@@ -13,7 +13,9 @@ Stock out
   <div class="flex justify-center">
     <!-- Image Preview -->
     <div class="card bg-base-200 shadow-2xl w-96 flex justify-center">
-      <div id="preview" class="viewport h-44 w-48 pl-5">
+      <div id="interactive" class="viewport">
+          <canvas class="drawingBuffer w-96 absolute inset-0 z-20"></canvas>
+          <video class="relative z-10 rounded-2xl" autoplay="true" preload="auto" src="" muted="true" playsinline="true"></video>
       </div>
     </div>
   </div>
@@ -28,7 +30,7 @@ Stock out
             <form id="barcode_lookup" action="" onSubmit="test1()">
               <div class="flex flex-row items-center space-x-4">
                 <input id="barcode_search" type="number" placeholder="Enter EAN" class="input input-bordered w-full max-w-xs" />
-                <i class="fa-solid fa-magnifying-glass fa-lg cursor-pointer" onclick="LocalBarcodeLookup()"></i>
+                <i id="mg_glass" class="fa-solid fa-magnifying-glass fa-lg cursor-pointer" onclick="LocalBarcodeLookup()"></i>
                 <!-- <i class="fa-solid fa-cart-plus fa-lg cursor-pointer" onclick="HTMLFormElement.prototype.submit.call($('#addProduct')[0])"></i> -->
               </div>
             </form>

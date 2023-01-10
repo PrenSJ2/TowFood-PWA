@@ -185,6 +185,6 @@ Quagga.onDetected(function(result) {
   var barcode_input = document.getElementById('barcode_search');
   barcode_input.value = code;
 
-  BarcodeLookup();
+  document.getElementById('mg_glass').click();
 
 });
